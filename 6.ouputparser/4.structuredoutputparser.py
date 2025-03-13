@@ -25,11 +25,13 @@ template=PromptTemplate(template='Give 3 facts about the {topic} \n {format_inst
                         partial_variables={'format_instruction':parser.get_format_instructions()}
 )
 
+#With Chains
 chain = template|model|parser
 result=chain.invoke({'topic':'black hole'})
 print(result)
 
-# prompt=template.invoke({'topic':'black hole'})
-# result=model.invoke(prompt)
-# final_result=parser.parse(result.content)
-# print(final_result)
+#Without Chains
+prompt=template.invoke({'topic':'Time Dilation'})
+result=model.invoke(prompt)
+final_result=parser.parse(result.content)
+print(final_result)

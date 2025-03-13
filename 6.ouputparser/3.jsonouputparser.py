@@ -25,8 +25,8 @@ chain=template|model|parser
 result=chain.invoke({'topic':'black hole'})
 print(result)
 
-#without chains
-prompt=template.format()
+#Without chains
+prompt=template.invoke({'topic':'time dilation'})
 result=model.invoke(prompt)
 final_result=parser.parse(result.content)
 print(final_result)
